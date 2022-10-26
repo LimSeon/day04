@@ -37,6 +37,7 @@ JavaScript 수업 내용 정리
 #### 객체의 속성 추가 및 제거
 * 객체의 속성 추가 : 객체명.속성명 = '속성값';
 * 객체의 속성 제거 : delete(객체명.속성명);
+
 ## 09_객체2
 ### 객체배열을 이용한 다량의 데이터 관리
 * 자바스크립트에서 배열에 값을 추가할 인덱스, push(), unshift()가 있음
@@ -58,3 +59,66 @@ JavaScript 수업 내용 정리
 - 시 : getHours();
 - 분 : getMinutes();
 - 초 : getSeconds();
+
+## 10_window 객체
+### window객체의 종류
+* window객체는 자바스크립트의 최상의 객체로 크게 BOM과 DOM으로 나뉨
+* BOM(Browser Object Model) : 브라우저 창과 관련된 객체들
+* DOM(Document Object Model) : HTML 문서의 요소(태그)와 관련된 객체들
+### window객체에서 제공하는 메소드
+- window.alert('');
+- window.console.log('');
+- window.confirm('');
+- window.prompt('');
+- window.open();
+- window.setTimeout(함수,ms);
+- window.setInterval(함수,ms);
+### BOM(Browser Object Model)
+* 브라우저의 주소창과 관련된 객체 => url(href속성)
+* locaton 객체, screen객체, navigator 객체
+#### location 객체의 메소드
+- assign() : 페이지 이동, 뒤로가기 可
+- replace() : 페이지 이동, 뒤로가기 不可
+- reload() : 새로고침
+#### screen 객체와 navigaotr객체
+- screen : 사용자가 보는 화면에 관한 정보
+- navigaotr : 브라우저에 대한 정보
+### BOM(Browser Object Model)
+* HTML에 있는 각각의 요소들을 Node(노드)라고 한다.
+* 요소노드(Element Node) : 태그 자체만을 의미 == Element
+* 텍스트노드(Text Node) : 태그 내에 기록되는 내용 == Content
+#### 노드 생성과 관련된 메소드
+> 텍스트 노드가 존재하는 노드 생성(시작태그 + 종료태그)
+>> 1.문자열로 만드는 방법 <br>
+>> 2.document에서 제공하는 메소드를 통해 "요소객체"로 만드는 방법
+>>> 1) elementNode 객체 생성 : document.createElement('태그명');
+>>> 2) textNode 객체 생성 : document.createTextNode('문구');
+>>> 3) 두 개의 노드를 연결(ElementNode의 하위로 TextNode를 추가)
+>>>> 요소노드.appendChild(텍스트노드);
+> 텍스트노드가 존재하지 않는 노드 생성(시작태그만 존재)
+>> 1) 속성 추가 : 객체명.속성 = '속성값';
+>> 2) 태그의 자식요소로 전달하기 : 요소노드.appendChild(자식요소객체)
+>노드 삭제
+>> 지우고자하는객체.remove();
+
+## 11_이벤트
+### 1. 이벤트 모델 종류(이벤트를 부여하는 방법들)
+#### 이벤트 관련 용어
+* event target : 이벤트가 일어날 객체(button, he, label...)
+* event type : 이벤트 종류(click, scroll, mousemove...)
+* event handler : 이벤트가 발생했을 때 동작할 코드들의 모임
+#### 이벤트 모델의 종류
+> 1) 고전 이벤트 모델<br>
+> 2) 인라인 이벤트 모델<br>
+> 3) 표준 이벤트 모델<br>
+> > 고전 이벤트 모델(기본 이벤트 모델)
+> > > * 요소 객체를 가지고 와서 해당 요소객체의 이벤트 속성에 접근한 후 이벤트 핸들러를 연결하는 방식
+> > > (==익명함수를 대입한다.)
+> > > * 요소객체.(이벤트)속성명 = function(){}; <br>
+> > > => (이벤트) 속성명에다 null을 대입하면 이벤트가 제거됨
+> > 인라인 이벤트 모델
+> > > * 요소 내부에 직접적으로 이벤트 속성을 제시해서 실행할 내용을 정의하는 방식 <br>
+> > > * 주로 script 태그 내에 정의되어있는 함수를 호출하는 방법을 선호
+> > 표준 이벤트 모델
+> > > * 이벤트를 걸고자하는 요소 객체.addEventListener('이벤트명', '이벤트핸들러 => 익명함수');
+> > > * 이벤트명 : click(클릭), mouseenter(버튼 안으로 포인터가 들어가는 순간), mouseout(버튼 밖으로 포인터가 빠져나가는 순간)

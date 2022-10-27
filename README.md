@@ -75,7 +75,7 @@ JavaScript 수업 내용 정리
 - window.setInterval(함수,ms);
 ### BOM(Browser Object Model)
 * 브라우저의 주소창과 관련된 객체 => url(href속성)
-* locaton 객체, screen객체, navigator 객체
+* locaiton 객체, screen객체, navigator 객체
 #### location 객체의 메소드
 - assign() : 페이지 이동, 뒤로가기 可
 - replace() : 페이지 이동, 뒤로가기 不可
@@ -83,23 +83,22 @@ JavaScript 수업 내용 정리
 #### screen 객체와 navigaotr객체
 - screen : 사용자가 보는 화면에 관한 정보
 - navigaotr : 브라우저에 대한 정보
-### BOM(Browser Object Model)
+### DOM(Document Object Model)
 * HTML에 있는 각각의 요소들을 Node(노드)라고 한다.
 * 요소노드(Element Node) : 태그 자체만을 의미 == Element
 * 텍스트노드(Text Node) : 태그 내에 기록되는 내용 == Content
 #### 노드 생성과 관련된 메소드
-> 텍스트 노드가 존재하는 노드 생성(시작태그 + 종료태그)
->> 1.문자열로 만드는 방법 <br>
->> 2.document에서 제공하는 메소드를 통해 "요소객체"로 만드는 방법
->>> 1) elementNode 객체 생성 : document.createElement('태그명');
->>> 2) textNode 객체 생성 : document.createTextNode('문구');
->>> 3) 두 개의 노드를 연결(ElementNode의 하위로 TextNode를 추가)
->>>> 요소노드.appendChild(텍스트노드);
-> 텍스트노드가 존재하지 않는 노드 생성(시작태그만 존재)
->> 1) 속성 추가 : 객체명.속성 = '속성값';
->> 2) 태그의 자식요소로 전달하기 : 요소노드.appendChild(자식요소객체)<br>
->노드 삭제
->> 지우고자하는객체.remove();
+* 텍스트 노드가 존재하는 노드 생성(시작태그 + 종료태그)
+  - 1.문자열로 만드는 방법 <br>
+  - 2.document에서 제공하는 메소드를 통해 "요소객체"로 만드는 방법
+    + 1) elementNode 객체 생성 : document.createElement('태그명');
+    + 2) textNode 객체 생성 : document.createTextNode('문구');
+    + 3) 두 개의 노드를 연결(ElementNode의 하위로 TextNode를 추가) : 요소노드.appendChild(텍스트노드);
+* 텍스트노드가 존재하지 않는 노드 생성(시작태그만 존재)
+  - 1) 속성 추가 : 객체명.속성 = '속성값';
+  - 2) 태그의 자식요소로 전달하기 : 요소노드.appendChild(자식요소객체)<br>
+#### 노드 삭제
+* 지우고자하는객체.remove();
 
 ## 11_이벤트
 ### 1. 이벤트 모델 종류(이벤트를 부여하는 방법들)
